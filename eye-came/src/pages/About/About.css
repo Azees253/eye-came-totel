@@ -1,0 +1,34 @@
+.about-head {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: rgba(6, 6, 122, 0.774);
+}
+.about-para {
+  padding: 20px;
+}
+.about-para p {
+  font-size: 20px;
+}
+.about-list {
+  display: inline-block;
+  margin-left: 10%;
+}
+.about-list ul li {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .about-head {
+    font-size: 22px;
+  }
+  .about-para p {
+    font-size: 12px;
+  }
+  .about-list ul li {
+    font-size: 12px;
+  }
+  .about-list {
+    margin-left: 15%;
+  }
+}

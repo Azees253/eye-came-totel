@@ -1,0 +1,64 @@
+.contact-container h1 {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 50px;
+  color: rgba(6, 6, 122, 0.774);
+}
+.contact-container {
+  text-align: start;
+}
+.txt-alng h3 {
+  color: rgba(6, 6, 122, 0.774);
+}
+
+.contact-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.contact-icon {
+  margin-top: 20px;
+  margin-left: -20px;
+}
+.contact-icon i {
+  color: rgba(6, 6, 122, 0.774);
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .contact-container h1 {
+    font-size: 18px;
+  }
+  .txt-alng h3 {
+    font-size: 12px;
+  }
+  .txt-alng p {
+    font-size: 10px;
+  }
+  .contact-icon {
+    margin-left: 0px;
+  }
+  .contact-icon i {
+    font-size: 15px;
+    margin-left: 5px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .contact-container h1 {
+    font-size: 18px;
+  }
+  .txt-alng h3 {
+    font-size: 10px;
+  }
+  .txt-alng p {
+    font-size: 8px;
+  }
+  .contact-icon {
+    margin-left: 1px;
+  }
+  .contact-icon i {
+    font-size: 10px;
+    margin-left: 5px;
+  }
+}

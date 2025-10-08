@@ -1,0 +1,87 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+const ServiesOrder = ({ url }) => {
+  const [data, setData] = useState([]);
+
+  const fetchAllData = async () => {
+    const response = await axios.get(url + "/api/serviesorder/list");
+    if (response.data.success) {
+      setData(response.data.data);
+      console.log(response.data.data);
+    } else {
+      alert("Error in getting data");
+    }
+  };
+
+  const statusHandler = async (event, orderId) => {
+    const response = await axios.post(url + "/api/serviesorder/status", {
+      orderId,
+      status: event.target.value,
+    });
+    if (response.data.success) {
+      await fetchAllData();
+    }
+  };
+
+  useEffect(() => {
+    fetchAllData();
+  }, []);
+  return (
+    <div className="order add">
+      <h3> Servies Order Page</h3>
+      <div className="order-list">
+        {data.map((order, index) => (
+          <div className="order-item">
+            <p>
+              {order.items.map((item, index) => {
+                if (index === order.items.length - 1) {
+                  return (
+                    <>
+                      <img src={url + "/images/" + item.image} />
+                      <p>{item.name + " x " + item.quantity}</p>
+                      <p>₹{item.servies}</p>
+                    </>
+                  );
+                } else {
+                  return item.name + " x " + item.quantity;
+                }
+              })}
+            </p>
+            <div className="first-last">
+              <p>{order.address.firstName}</p>
+              <p>{order.address.lastName}</p>
+            </div>
+            <div>
+              <p>{order.address.address}</p>
+              <p>
+                {order.address.city}-{order.address.zipcode}
+              </p>
+              <p>Phone:{order.address.phone}</p>
+            </div>
+            <div>
+              <p>{order.address.email}</p>
+              <p>{order.address.contry}</p>
+            </div>
+
+            <select
+              onChange={(event) => statusHandler(event, order._id)}
+              value={order.status}
+            >
+              <option value="Request send Successfully">
+                Request send Successfully
+              </option>
+              <option value="Request Accepted">Request Accepted</option>
+              <option value="On The Way">On The Way</option>
+              <option value="Servies Successfully Done">
+                Servies Successfully Done
+              </option>
+            </select>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ServiesOrder;

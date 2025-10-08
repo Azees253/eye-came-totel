@@ -15,7 +15,7 @@ const StoreContextProvider = (props) => {
   const [product_Items, setProductItems] = useState([]);
   const [service_items, setServiceItems] = useState([]);
 
-  const url = "http://localhost:5000";
+  const url = "https://eye-came-totel.onrender.com";
 
   // servies cart functions
 

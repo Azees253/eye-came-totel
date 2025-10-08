@@ -14,7 +14,7 @@ import ServiesOrder from "./pages/ServiesOrder/ServiesOrder";
 
 function App() {
   const [count, setCount] = useState(0);
-  const url = "http://localhost:5000";
+  const url = "https://eye-came-totel.onrender.com";
 
   return (
     <>
